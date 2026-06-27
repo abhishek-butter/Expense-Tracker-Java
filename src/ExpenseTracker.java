@@ -1,3 +1,4 @@
+
 import java.time.*;
 import java.util.ArrayList;
 
@@ -21,20 +22,26 @@ class ExpenseTracker{
     public void addExpense(int amount,LocalDate date,String category){
         
         Expense a=new Expense(nextId,amount,date,category);
-        System.out.println("Your expense id is "+nextId);
+        System.out.println("\nYour expense id is "+nextId);
+        
         expenses.add(a);
         nextId++;
         
         
 
     }
-    public void deleteExpense(int id){
+    public boolean deleteExpense(int id){
+        boolean found=false;
+        
         for(int i=0;i<expenses.size();i++){
             if(expenses.get(i).getId()==id){
                 expenses.remove(i);
+                found=true;
+
                 break;
             }
         }
+        return found;
     }
     public void viewExpenses(){
         if(expenses.isEmpty()){
