@@ -13,7 +13,7 @@ public class Main {
             
             
             System.out.print("\n===========================================================\nExpense Tracker Menu\n===========================================================\n");
-            System.out.print("\n1.Add Expense\n2.Delete Expense\n3.View Expenses\n4.SearchExpense\n5.EXIT\n");
+            System.out.print("\n1.Add Expense\n2.Delete Expense\n3.View Expenses\n4.SearchExpense\n5.Update Expense\n6.EXIT\n");
             System.out.print("Please enter you choice here: ");
             
             int n=sc.nextInt();
@@ -60,11 +60,45 @@ public class Main {
                     tracker.searchExpense(searchid);
                     
                 }
-                case 5-> {
+                case 5->{
+                    System.out.print("\nEnter id of the expense you want to update: ");
+                    int updateId=sc.nextInt();
+                    sc.nextLine();
+                    System.out.printf("\nEnter the attribute you wana update in expense with id \"%d\" \n1. Amount\n2. Date\n3. Category\n",updateId);
+                    int choice=sc.nextInt();
+                    sc.nextLine();
+                    switch (choice) {
+                        case 1->{
+                            System.out.print("\nPlease enter the new amount to be updated: ");
+                            int newAmount=sc.nextInt();
+                            sc.nextLine();
+                            tracker.updateExpense(updateId, newAmount);
+
+                        }
+                        case 2->{
+                            System.out.print("\nPlease enter the new date(YYYY MM DD) to be updated: ");
+                            int newYear=sc.nextInt();
+                            int newMonth=sc.nextInt();
+                            int newDay=sc.nextInt();
+
+                            sc.nextLine();
+                            tracker.updateExpense(updateId,LocalDate.of(newYear,newMonth,newDay));
+
+                        }
+                        case 3->{
+                            System.out.print("\nPlease enter the new Category to be updated: ");
+                            String newCategory=sc.nextLine();
+                            
+                            tracker.updateExpense(updateId, newCategory);
+                        }
+                        default ->System.out.println("\nEnter a valid option");
+                    }
+                }
+                case 6-> {
                     return;
                 }
                 default ->{
-                    System.out.println("enter a valid choice");
+                    System.out.println("\nenter a valid choice");
                 }
             }
             

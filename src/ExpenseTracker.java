@@ -66,6 +66,31 @@ class ExpenseTracker{
             System.out.printf("Expense with id %d not found\n",id);
         }
     }
-
-
+    public void updateExpense(int id,int amount){
+        for(Expense e:expenses){
+            if(e.getId()==id){
+                e.setAmount(amount);
+                System.out.printf("Updated expense with id \"id\"\n",id);
+                break;
+            }            
+        }        
+    }
+    public void updateExpense(int id,LocalDate date){
+        for(Expense e:expenses){
+            if(e.getId()==id){
+                e.setDate(date);
+                System.out.printf("Updated expense with id \"id\"\n",id);
+                break;
+            }          
+        }        
+    }
+    public void updateExpense(int id,String category){
+        for(Expense e:expenses){
+            if(e.getId()==id){
+                e.setCategory(category);
+                System.out.printf("Updated expense with id \"%d\"\n",id);
+                break;
+            }            
+        }        
+    }
 }
