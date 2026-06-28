@@ -8,6 +8,7 @@ A Java CLI application to manage personal expenses.
 - Delete Expense
 - Search Expense
 - View Expenses
+- Update Expenses
 
 ## Tech Stack
 
