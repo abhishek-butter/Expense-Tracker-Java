@@ -1,0 +1,3 @@
+- - v1.0
+- First Stable Release of the CLI Expense Tracker
+- Add,Update,Delete,View,Search Expenses 
